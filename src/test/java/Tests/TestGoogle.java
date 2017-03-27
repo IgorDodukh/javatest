@@ -33,7 +33,10 @@ public class TestGoogle extends BrowserSettings {
 
         log("Waiting of appearing search results");
         searchResultsPage = new SearchResultsPage(driver);
+
+        log("Check that page title has expected value");
         Assert.assertEquals(googlePageTitle, "Google", "Not expected page title");
+
         searchResultsPage.checkFirstUrl(neededUrl);
         searchResultsPage.navigateThroughResultsLinks();
     }

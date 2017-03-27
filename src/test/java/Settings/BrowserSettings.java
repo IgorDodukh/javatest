@@ -25,8 +25,6 @@ public class BrowserSettings {
         String chromeDriverPath = System.getProperty("chrome.driver.executable");
         System.setProperty("webdriver.chrome.driver", chromeDriverPath);
         driver = new ChromeDriver();
-
-        driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
         driver.get("https://www.google.com");

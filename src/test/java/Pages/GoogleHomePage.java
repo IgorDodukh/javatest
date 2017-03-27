@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class GoogleHomePage extends BrowserSettings {
     private final WebDriver driver;
 
+    //define page locators
     @FindBy(id = "lst-ib")
     private WebElement searchField;
 
@@ -23,22 +24,27 @@ public class GoogleHomePage extends BrowserSettings {
     @FindBy(id = "hdtb-msb")
     private WebElement toolBar;
 
+    //initialize objects for page factory
     public GoogleHomePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
     private void setSearchValue(String searchValue) {
+        log("Set search value: " + searchValue);
         searchField.sendKeys(searchValue);
     }
 
     private void sumbitSearchField() {
+        log("Submit search field");
         searchField.submit();
     }
 
     public void sendSearchRequest(String searchString) {
         this.setSearchValue(searchString);
         this.sumbitSearchField();
+
+        log("Wait until the toolbar on the results page will appear");
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.visibilityOf(toolBar));
     }

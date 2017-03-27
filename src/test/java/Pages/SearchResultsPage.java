@@ -19,19 +19,24 @@ import java.util.concurrent.TimeUnit;
 public class SearchResultsPage extends BrowserSettings {
     private final WebDriver driver;
 
+    //define page locators
     private By searchResultsTitle = By.cssSelector("div h3>a");
 
+    //initialize objects for page factory
     public SearchResultsPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
+    //
     private List<WebElement> getResultsList() {
         List<WebElement> resultsTitles = driver.findElements(searchResultsTitle);
         return resultsTitles;
     }
 
     public void checkFirstUrl(String url) {
+        //Get the link of the first found item in the results list
+        log("Check that first found result has URL: " + url);
         String firstFoundUrl = getResultsList().get(0).getAttribute("href");
         Assert.assertEquals(firstFoundUrl, url, "First found result has not expected URL");
     }

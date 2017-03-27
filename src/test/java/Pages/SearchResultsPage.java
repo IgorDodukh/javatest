@@ -62,8 +62,8 @@ public class SearchResultsPage extends BrowserSettings {
             driver.switchTo().window((String) set.toArray()[0]);
 
             //Check presence of company name on the page
-            String pageSource = driver.getPageSource();
-            Assert.assertTrue(pageSource.contains("Ortnec"),
+            String pageSource = driver.getPageSource().toLowerCase();
+            Assert.assertTrue(pageSource.contains("ortnec"),
                     "Company name is absent by URL: " + driver.getCurrentUrl());
 
             //close the window and switch back to the base tab

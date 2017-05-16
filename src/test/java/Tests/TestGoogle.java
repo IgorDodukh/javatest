@@ -16,9 +16,15 @@ public class TestGoogle extends BrowserSettings {
     private GoogleHomePage googleHomePage;
     private SearchResultsPage searchResultsPage;
 
-    private String searchValue = "Ortnec";
-    private String neededUrl = "http://ortnec.com/";
+    private String searchValue = "qa";
+    private String neededUrl = "https://uk.wikipedia.org/wiki/QA";
 
+
+    /**
+     * The test performs search by "searchValue" value in Google.
+     * The test checks that the first found link is to Wikipedia.
+     * The test checks that "searchValue" value exists on the each found page.
+     * */
     @Test
     public void testSearchResults() throws InterruptedException {
         driver = getDriver();

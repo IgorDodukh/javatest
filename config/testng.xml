@@ -1,8 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="For test" verbose="1">
-    <test name="Google test">
+<suite name="FirstSuite" parallel="tests">
+    <test name="ChromeTest">
+        <parameter name="browser" value="chrome"/>
+        <parameter name="testUrl" value="https://www.google.com"/>
         <classes>
-            <class name="Tests.TestGoogle"/>
+            <class name="tests.TestGoogle"/>
+        </classes>
+    </test>
+
+    <test name="FirefoxTest">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="tests.TestGoogle"/>
         </classes>
     </test>
 </suite>

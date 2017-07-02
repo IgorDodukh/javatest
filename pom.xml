@@ -10,7 +10,7 @@
 
     <properties>
         <version.testng>6.11</version.testng>
-        <version.selenium>3.2.0</version.selenium>
+        <version.selenium>3.4.0</version.selenium>
         <version.maven.surefire>2.19.1</version.maven.surefire>
         <version.maven.compiler>3.6.1</version.maven.compiler>
     </properties>
@@ -42,6 +42,7 @@
                 <configuration>
                     <systemPropertyVariables>
                         <chrome.driver.executable>${project.build.outputDirectory}${file.separator}chromedriver.exe</chrome.driver.executable>
+                        <firefox.driver.executable>${project.build.outputDirectory}${file.separator}geckodriver.exe</firefox.driver.executable>
                     </systemPropertyVariables>
                     <suiteXmlFiles>
                         <suiteXmlFile>
